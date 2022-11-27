@@ -39,12 +39,11 @@ export function UsersScreen() {
       <Divider />
       <UsersList
         users={data}
-        onUserPress={user => {
-          navigation.navigate('UserDetails', { user })
+        onUserPress={(user) => {
+          navigation.navigate('UserDetails', { user });
         }}
       />
       <Spacer height={marginBottom + 20} />
     </ScreenContainer>
   );
 }
-

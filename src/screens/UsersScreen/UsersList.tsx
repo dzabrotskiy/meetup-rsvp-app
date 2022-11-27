@@ -10,7 +10,7 @@ import type { User } from './types';
 type Props = {
   users: User[];
   onUserPress(user: User): void;
-}
+};
 
 export function UsersList({ users, onUserPress }: Props) {
   const secondaryColor = useThemeColor('secondary');
@@ -35,7 +35,7 @@ export function UsersList({ users, onUserPress }: Props) {
         </Pressable>
       )}
     />
-  )
+  );
 }
 
 const styles = StyleSheet.create({

@@ -15,7 +15,9 @@
   },
   "jest": {
     "preset": "jest-expo",
-    "setupFiles": ["./jest-setup.js"]
+    "setupFiles": [
+      "./jest-setup.js"
+    ]
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -37,6 +39,7 @@
     "expo-status-bar": "~1.4.2",
     "expo-system-ui": "~2.0.1",
     "expo-web-browser": "~12.0.0",
+    "jest-mock-axios": "^4.7.0-beta2",
     "lodash": "^4.17.21",
     "lottie-react-native": "5.1.4",
     "randomcolor": "^0.6.2",

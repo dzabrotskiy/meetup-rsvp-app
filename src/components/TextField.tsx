@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { ForwardedRef, forwardRef, Fragment } from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -24,19 +24,22 @@ export type Props = {
   maxLength?: TextInputProps['maxLength'];
 };
 
-export function TextField({
-  value,
-  onChange,
-  label,
-  placeholder,
-  keyboardType,
-  onBlur,
-  multiline,
-  maxLength,
-  style,
-  status,
-  description,
-}: Props) {
+export const TextField = forwardRef(function TextField(
+  {
+    value,
+    onChange,
+    label,
+    placeholder,
+    keyboardType,
+    onBlur,
+    multiline,
+    maxLength,
+    style,
+    status,
+    description,
+  }: Props,
+  ref: ForwardedRef<TextInput>
+) {
   const backgroundColor = useThemeColor('secondary');
   const textColor = useThemeColor('text');
 
@@ -45,6 +48,7 @@ export function TextField({
       {label && <Text style={styles.label}>{label}</Text>}
       <Spacer height={6} />
       <TextInput
+        ref={ref}
         value={value}
         onChangeText={onChange}
         placeholder={placeholder}
@@ -74,7 +78,7 @@ export function TextField({
       )}
     </View>
   );
-}
+});
 
 const styles = StyleSheet.create({
   container: {
