@@ -24,4 +24,5 @@ Test script runs on pre-commit.
 ```shell
 $ npm test # run test
 $ npm run test:watch # run test in watch mode
+$ npm run test:coverage # run test with coverage
 ```
