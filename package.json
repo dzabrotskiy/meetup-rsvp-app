@@ -8,6 +8,7 @@
     "web": "expo start --web",
     "test": "jest",
     "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
     "format": "prettier --write \"./*.ts\" \"*/**/*.ts\" \"*/**/*.tsx\"",
     "release:ios": "expo run:ios --device --configuration Release",
     "release:android": "expo run:android --device --variant release",
