@@ -11,6 +11,8 @@ import { Field } from 'components/Field';
 import { Spacer } from 'components/Spacer';
 import { UserDetailRow } from 'screens/UserDetailsScreen/UserDetailRow';
 
+import { getReportData } from './getReportData';
+
 const chartConfig = {
   backgroundColor: primaryColor,
   backgroundGradientFrom: primaryColor,
@@ -29,47 +31,16 @@ const chartConfig = {
 };
 
 export function ReportsScreen() {
-  const averageGroupSize = useMemo(() => {
-    const guestsCount = users.reduce(
-      (acc, curr) => acc + curr.numberOfGuests + 1,
-      0
-    );
-    return Math.round(guestsCount / users.length);
-  }, []);
-
   const graphData = useMemo(() => {
-    let lessThan18 = 0;
-    let moreThan18 = 0;
-    let moreThan25 = 0;
-    let employedCount = 0;
-    let studentsCount = 0;
-    const peopleByLocalities: Record<string, number> = {};
-
-    users.forEach((user) => {
-      if (13 <= user.age && user.age <= 18) {
-        lessThan18 += 1;
-      }
-      if (18 < user.age && user.age <= 25) {
-        moreThan18 += 1;
-      }
-      if (user.age > 25) {
-        moreThan25 += 1;
-      }
-
-      if (user.profession === 'Student') {
-        studentsCount += 1;
-      }
-      if (user.profession === 'Employed') {
-        employedCount += 1;
-      }
-
-      if (!peopleByLocalities[user.locality]) {
-        peopleByLocalities[user.locality] = 1;
-      } else {
-        peopleByLocalities[user.locality] =
-          peopleByLocalities[user.locality] + 1;
-      }
-    });
+    const {
+      lessThan18,
+      moreThan18,
+      moreThan25,
+      employedCount,
+      studentsCount,
+      peopleByLocalities,
+      averageGroupSize,
+    } = getReportData(users);
 
     return {
       numberOfPeopleByAge: [
@@ -120,6 +91,7 @@ export function ReportsScreen() {
           legendFontSize: 15,
         },
       ],
+      averageGroupSize,
     };
   }, []);
 
@@ -128,7 +100,7 @@ export function ReportsScreen() {
       <UserDetailRow
         icon={<MaterialIcons name="analytics" size={30} color={primaryColor} />}
         label="Average Group Size"
-        value={averageGroupSize}
+        value={graphData.averageGroupSize}
       />
       <Spacer height={20} />
       <Field label=" Number of people in a given age range">

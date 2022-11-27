@@ -14,7 +14,8 @@
     "prepare": "husky install"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "setupFiles": ["./jest-setup.js"]
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -54,12 +55,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@testing-library/react-native": "^11.5.0",
     "@types/randomcolor": "^0.5.6",
     "@types/react": "~18.0.24",
     "@types/react-native": "~0.70.6",
     "babel-plugin-module-resolver": "^4.1.0",
     "husky": "^8.0.2",
-    "jest": "^26.6.3",
+    "jest": "^29.3.1",
     "jest-expo": "~47.0.1",
     "prettier": "^2.8.0",
     "react-test-renderer": "18.1.0",
