@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#fff",
+      },
+      {
+        "backgroundColor": "transparent",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#fff",
+        },
+        [
+          {
+            "height": 6,
+          },
+          {
+            "backgroundColor": "transparent",
+          },
+        ],
+      ]
+    }
+  />
+  <TextInput
+    onChangeText={[Function]}
+    style={
+      [
+        {
+          "backgroundColor": "#e0e0e0",
+          "color": "#000",
+        },
+        {
+          "borderRadius": 10,
+          "fontSize": 19,
+          "height": 45,
+          "paddingLeft": 10,
+        },
+        undefined,
+        false,
+      ]
+    }
+    value="value"
+  />
+</View>
+`;
