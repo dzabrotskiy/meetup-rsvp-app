@@ -28,7 +28,7 @@ export function Address({ setStep, onSubmit }: StepFormProps) {
         maxLength={50}
         style={{ height: 70, textAlignVertical: 'top' }}
         status={errors.address && 'error'}
-        description={errors.address?.message as string}
+        description={errors.address?.message}
       />
       <Spacer height={30} />
       <Button

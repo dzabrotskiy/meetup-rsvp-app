@@ -9,7 +9,7 @@ import { Field } from 'components/Field';
 import { Button } from 'components/Button';
 
 import { numberOfGuestsOptions, professionOptions, Steps } from './constants';
-import { StepFormProps } from './types';
+import { RegistrationData, StepFormProps } from './types';
 
 export function AdditionalInfo({ setStep }: StepFormProps) {
   const {
@@ -17,7 +17,7 @@ export function AdditionalInfo({ setStep }: StepFormProps) {
     formState: { errors },
     setError,
     clearErrors,
-  } = useFormContext();
+  } = useFormContext<RegistrationData>();
 
   const { field: profession } = useController({
     control,
@@ -62,7 +62,7 @@ export function AdditionalInfo({ setStep }: StepFormProps) {
         label="Locality *"
         placeholder="Enter Locality"
         status={errors.locality && 'error'}
-        description={errors.locality?.message as string}
+        description={errors.locality?.message}
       />
       <Spacer height={20} />
       <Field label="Number Of Guests">

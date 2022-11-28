@@ -27,7 +27,7 @@ export function CommonInfo({ setStep }: StepFormProps) {
     formState: { errors },
     setError,
     clearErrors,
-  } = useFormContext();
+  } = useFormContext<RegistrationData>();
 
   const { field: name } = useController({
     control,
@@ -72,13 +72,13 @@ export function CommonInfo({ setStep }: StepFormProps) {
         label="Name *"
         placeholder="Enter Name"
         status={errors.name && 'error'}
-        description={errors?.name?.message as string}
+        description={errors?.name?.message}
       />
       <Spacer height={20} />
       <TextField
         {...age}
         status={errors.age && 'error'}
-        description={errors.age?.message as string}
+        description={errors.age?.message}
         label="Age *"
         placeholder="Enter Age"
         keyboardType="numeric"
